@@ -56,6 +56,7 @@ body{
   margin: 0 1.5rem;
 }
 
+
 .battery-card{
   position: relative;
   width: 100%;
@@ -66,6 +67,10 @@ body{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
+}
+
+.battery-text{
+  margin-bottom: 0.5rem;
 }
 
 .battery-parcentage{
@@ -80,9 +85,8 @@ body{
   font-size: var(--samller-font-size);
 }
 
-.battery-status{
+.battery-status i{
   font-size: 1.25rem;
-
 }
 
 .battery-pill{
@@ -110,7 +114,7 @@ body{
   height: 36px;
   background: var(--gradient-color-red);
   box-shadow: inset -10px 0 12px hsla(0, 0% ,0% ,0.1),
-                                     hsla(0, 0% , 0%, 0.15);
+              inset 12px 0 12px hsla(0, 0% , 0%, 0.15);
   transition: 0.3s;
 }
 
@@ -125,4 +129,55 @@ body{
   margin: 0 auto;
   top: -4px;
   border-radius: 50%;
+}
+
+.green-color{
+  background: var(--gradient-color-green);
+}
+.animated-greeen{
+  background: var(--gradient-color-green);
+  animation: animated-chargin-battery 1.2s infinite alternate;
+}
+.animated-red{
+  background: var(--gradient-color-red);
+  animation: animated-low-battery 1.2s infinite alternate;
+}
+.animated-greeen,
+.animated-red,
+.green-color{
+-webkit-background-clip: text;
+color: transparent;
+}
+@keyframes animated-chargin-battery{
+  0%{
+    text-shadow: none;
+  }
+  100%{
+    text-shadow: 0 0 6px hsl(90,90%,68%);
+  }
+}
+@keyframes animated-low-battery{
+  0%{
+    text-shadow: none;
+  }
+  100%{
+    text-shadow: 0 0 8px hsl(7,89%,46%);
+  }
+} 
+
+.gradient-color-red,
+.gradient-color-red::after{
+  background: var(--gradient-color-red);
+}
+.gradient-color-orange,
+.gradient-color-orange::after{
+  background-color: var(--gradient-color-orange);
+}
+.gradient-color-yellow,
+.gradient-color-yellow::after{
+  background: var(--gradient-color-yellow);
+}
+.gradient-color-green,
+.gradient-color-green::after{
+  background: var(--gradient-color-green);
 }
